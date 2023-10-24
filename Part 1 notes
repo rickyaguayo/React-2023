@@ -1,7 +1,8 @@
+//////SECTION 3//////
 Why front end frameworks?
 - main reason is to keep UI and data in sync with each other
 - helps create a consistent way of structuring code for big projects
-- alleviates messy vanilla JS code for bigget scaled projects
+- alleviates messy vanilla JS code for bigger scaled projects
 
 React is: 
 component-based - components are the building blocks of UI in React. all the components together make up complex UIs (like legos)
@@ -13,4 +14,92 @@ declarative -
 state-driven - 
   - React reacts to state changes by rerendering the UI. (thats why its called React)
 JS library - React is a JS library. Still has some missing parts (routing, data fetching, server side rendering) that React frameworks like NEXT.js or Remix can help with
+
+//////SECTION 4//////
+
+
  
+ //////SECTION 5//////
+React must be injected into the root of the index.html file to be rendered.
+- usually injected to a div with an id of root
+- js file must be named index.js because webpack looks for this specific file
+- fucntion App() {
+  return <h1>Hello</h1>
+}
+
+const root = ReactDOM.createRoot(document.getElementById("root"))
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+)
+
+Components:
+- React applications are entirely made out of components
+- building blocks of user interfaces in React
+- Piece of UI that has its own data, logic, and appearance (how it works and looks)
+- We build complex UIs by building multiple components and combining them
+- Components can be reused, nested inside each other and pass data between them
+
+Components are written as functions
+- must start with an uppercase letter
+- must return markup (JSX)
+- can only return one markup element. (nesting helps here)
+- do not declare components inside another. Components should be declared on their own on the top level
+
+JSX:
+- Declarative syntax to describe what components look like and how they work
+- Components must return a block of JSX
+- Extension of JS that allows us to embed JS, CSS and React Components into HTML
+- browsers do not understand JSX. Therefore, Babel is used to convert the JSX to plain JS and HTML
+- Each JSX element is converted to a React.createElement() function call
+- We could use React without JSX, but thats not a good practice
+- works like HTML but we can enter "JS mode" by using {} (for text or attributes)
+- can use JS expressions inside {}
+  Ex: reference variables, create arrays/objects, [].map(), ternary operator
+- JS statements are not allowed
+- JSX produces JS expressions
+- a piece of JSX can only have one root element. if more are needed, use React.Fragment (<>)
+
+
+Imperative vs Declarative
+- Imperative code tells the program how to do things
+  - Manual DOM element selections and DOM traversing 
+  - step by step DOM mutation until we reach the desired UI (query selectors, adding event listeners, etc)
+- Declarative code tells the program what we want
+  - Describe what UI should look like using JSX, based on current data
+  - React is an abstraction away from the DOM. We never touch the DOM
+  - Instead, we think of the UI as a reflection on the current data
+
+Styling:
+- multiple ways of styling in React:
+  - inline styling (not great)
+    - use style attribute in JSX element
+    Ex: <h1 style={{ color: "red", fontSize: "48px", textTransform: "uppercase" }}>Fast React Pizza Co.</h1>
+  - external css file (import "./index.css)
+    - when applying classes, React requires 'className' instead of 'class'
+  - styled components
+
+Props:
+- way to pass data from parent components to child components. (cant be used vise versa)
+- when accessing props, props must be passed in as an argument to the function that created the component
+- anything can be passed as props: single values, arrays, objects, functions, and other components
+  - if something other than a string is needed, it must be wrapped in curly braces
+    - price={10}
+- essential tool to configure and customize components (like function parameters)
+- with props, parent components control how child components look and work
+- props are read only. (immutable)
+- if you need to mutate props, use state
+  - mutating props would affect parent causing side effects
+  - components have to be pure functions in terms of props and state
+  - this allows react to optimize apps, avoid bugs and make apps predictable
+- One way data flow:
+  - data can be passed from parent to child, but cannot be passed from child to parent
+  - this makes apps more predictable and easier to understand
+  - makes apps easier to debug, since we have more control over the data
+  - more performant
+
+- props is data coming from the outside and can only be updated by the parent component
+- state is internal data that can be updated by the components logic
+
+
