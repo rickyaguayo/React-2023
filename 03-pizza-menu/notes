@@ -1,25 +1,3 @@
-//////SECTION 3//////
-Why front end frameworks?
-- main reason is to keep UI and data in sync with each other
-- helps create a consistent way of structuring code for big projects
-- alleviates messy vanilla JS code for bigger scaled projects
-
-React is: 
-component-based - components are the building blocks of UI in React. all the components together make up complex UIs (like legos)
-declarative - 
-  - means we are telling React what a component should look like based on current data/state
-  - describe how components look like and how they work using declaritive syntax called JSX
-    - JSX combines HTML, CSS and JS and can also reference other React components
-  - React is abstraction away from the DOM. The DOM is untouched in React
-state-driven - 
-  - React reacts to state changes by rerendering the UI. (thats why its called React)
-JS library - React is a JS library. Still has some missing parts (routing, data fetching, server side rendering) that React frameworks like NEXT.js or Remix can help with
-
-//////SECTION 4//////
-
-
- 
- //////SECTION 5//////
 React must be injected into the root of the index.html file to be rendered.
 - usually injected to a div with an id of root
 - js file must be named index.js because webpack looks for this specific file
@@ -102,4 +80,28 @@ Props:
 - props is data coming from the outside and can only be updated by the parent component
 - state is internal data that can be updated by the components logic
 
+Rendering Lists - creating a component for each element of an array
+- use .map() to create multiple components for one array
+- when rendering the list, push an object through and drill in to specific parts in the function
+- when rendering a list, each item needs a "key" prop
+  - must be unique. name can be used
 
+Conditional Rendering - rendering part of the UI based on a condition
+- shortcircuiting with && - try to use boolean values to compare. using a number will render that number on the UI. React cant render boolean values
+- ternary operators - better than shortcircuiting. allows different pieces of UI if needed based on conditions
+- multiple (early) returns - adding a condition before the return to return something different depending on the condition
+
+Destructuring props - 
+- rather than having to write "props" as an argument for a new component, you can immediately destructure the props by wrapping it in {}
+Ex: function Order({ closeHour, openHour }) {}
+- destructured variables must match the name from where they came
+- anything that isnt matched will return "undefined"
+
+React Fragments (<>)
+- when returning a React component, it must be wrapped in a parent JSX element. this can sometimes mess with styling
+- fragments lets us group multiple elements without leaving a trace in the HTML tree
+- if a key is needed in a fragment, you can add React.Fragment to the fragment
+  <React.Fragment key="key"></React.Fragment>
+
+Conditionally setting text and class names
+- use JS mode and ternaries to set text and class names conditionally

@@ -112,7 +112,7 @@ const data = [
     publicationDate: "1996-08-01",
     author: "George R. R. Martin",
     genres: ["fantasy", "high-fantasy", "novel", "fantasy fiction"],
-    hasMovieAdaptation: true,
+    hasMovieAdaptation: false,
     pages: 835,
     translations: {
       korean: "왕좌의 게임",
@@ -135,15 +135,70 @@ const data = [
   },
 ];
 
+/*
 function getBooks() {
   return data;
 }
+const books = getBooks();
+
+const titles = books.map((book) => book.title);
+titles;
+
+function getTotalReviewsCount(book) {
+  let gr = book.reviews.goodreads.reviewsCount;
+  let la = book.reviews.librarything?.reviewsCount ?? 0;
+  return gr + la;
+}
+
+const essentialData = books.map((book) => ({
+  title: book.title,
+  author: book.author,
+  reviewsCount: getTotalReviewsCount(book),
+}));
+essentialData;
+
+const longBooks = books.filter(
+  (book) => book.pages > 500 && book.hasMovieAdaptation
+);
+longBooks;
+
+const adventureBooks = books
+  .filter((books) => books.genres.includes("adventure"))
+  .map((book) => book.title);
+adventureBooks;
+
+const pagesAllBooks = books.reduce((acc, book) => acc + book.pages, 0);
+pagesAllBooks;
+
+const sortedByPages = books.slice().sort((a, b) => b.pages - a.pages);
+sortedByPages;
+
+const newBook = {
+  id: 6,
+  title: "Harry Potter and the Chamber of Secrets",
+  author: "J.K. Rowling",
+};
+
+//working with immutable arrays
+//add book to object
+const booksAfterAdd = [...books, newBook];
+booksAfterAdd;
+
+//delete book object from array
+const booksAfterDelete = booksAfterAdd.filter((book) => book.id !== 3);
+booksAfterDelete;
+
+//update a book objecct in the array
+const booksAfterUpdate = booksAfterDelete.map((book) =>
+  book.id === 1 ? { ...book, pages: 1210 } : book
+);
+booksAfterUpdate;
 
 function getBook(id) {
   return data.find((d) => d.id === id);
 }
 
-const book = getBook(2);
+const book = getBook(3);
 book;
 
 const { title, author, genres, pages } = book;
@@ -165,3 +220,27 @@ console.log(updatedBook);
 
 const summary = `${title} is a ${pages} page long book, written by ${author}`;
 summary;
+
+console.log(true && "string");
+console.log(false && "string");
+
+function getTotalReviewsCount(book) {
+  let gr = book.reviews.goodreads.reviewsCount;
+  let la = book.reviews.librarything?.reviewsCount ?? 0;
+  return gr + la;
+}
+
+console.log(getTotalReviewsCount(book));
+*/
+
+// fetch("https://jsonplaceholder.typicode.com/todos").then((res) =>
+//   res.json().then((data) => console.log(data))
+// );
+
+async function getTodos() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/todos");
+  const data = await res.json();
+  console.log(data);
+}
+
+getTodos();

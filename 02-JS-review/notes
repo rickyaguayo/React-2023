@@ -1,0 +1,33 @@
+.map() -
+- loops over an array, returns a new array of the same length with some logic applied to each element of the array
+- takes in callback function that should return something
+Ex: const arr = [1, 2, 3, 4, 5];
+const x = arr.map((el) => el * 2);
+console.log(x); //returns [2, 4, 6, 8, 10]
+
+.filter() - 
+- filters out certain elemnts of an array based on a condition, returns new array
+- takes in callback function that should return something
+Ex: const arr = [1, 2, 3, 4, 5];
+const x = arr.filter((el) => el < 3);
+console.log(x); //returns [1, 2]
+
+.reduce() - 
+- used to reduce an array into one value
+- takes a callback function (that takes in an accumulator and a new parameter) and a starting value for the accumulator
+- the accumulator acts as the current value of the final value as its being rendered
+
+.sort() - 
+- use this method to sort an array
+- mutates the original array. if a copy of an array is needed, add .slice()
+Ex: const x = [3, 7, 1, 9, 6];
+const sorted = x.slice().sort((a, b) => a - b);
+sorted; //returns [1, 3, 6, 7, 9]
+x; //returns [3, 7, 1, 9, 6]
+
+Working with immutable arrays (see section in script.js)
+
+Promise - object representing the eventual completion or failure of an asychronus operation. callbacks are attached, not passed, depending on whether the promise failed or was fulfilled
+
+async function - functions that run asychronusly to other function
+await - keyworkd for async functions to handle promises in order
