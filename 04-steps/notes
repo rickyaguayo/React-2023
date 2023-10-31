@@ -1,0 +1,49 @@
+Handling events
+
+- similar to HTML events, but use camel case. add onEvent to JSX
+  Ex: <div onClick={callBack()}>
+- pass in a function, not a function call. a function call will execute as soon as the component is rendered
+Ex: <div onClick={() => alert('Hello')}> ✅
+<div onClick={alert('Hello')}> ❌
+- one component can handle more than one event
+- can also create a separate function and pass in the function name (again, dont call it)
+Ex: function handleClick() => {} 
+<div onClick={handleClick}>
+
+State - 
+  - data that a component can hold over time, necessary for info that it needs to remember throughout the app's lifecycle. the components "memory"
+  - state variable or piece of state - a single variable in a component (component state)
+  - updating a component state triggers React to rerender the component
+  - state is a tool that allows devs to update the components view by rerendering it and persist local variables between renders
+  - can only be called on the top level of components
+  - state should only ever be updated using its setter function (react cant update state any other way)
+
+  using state:
+  1. create state variable using useState()
+    - useState (a react hook) returns an array with 2 things: the default value of the state and a function used to update the state (setStateName)
+    - immediately destructure useState. const [step, setStep] = useState(1)
+    - always use const
+  2. use it in the code (usually in JSX)
+  3. update the piece of state in an event handler
+    - in setter function, tell React how you want to update the state
+    Ex: function increase() {setNumber(num + 1)}
+    - when updating the state based on the current state, its best to use a callback function to do so
+    Ex: function increase() {setNumber((num) => num + 1)}
+
+  with an object:
+  - const [test, setTest] = useState({name: 'Ricky'})
+  function updateObj() {setTest({name: 'bibi'})}
+
+  when to use state:
+  - when data inside a component needs to be remembered
+  - whenever you need a component to be dynamic
+  - whenever the UI needs to change the way it looks. (usually inside an event handler)
+  - dont use state when data doesnt need to trigger a rerender
+
+  other state things:
+  - each component has/manages its own state no matter how many times we render the same component.
+  Ex: can render a counter component in 3 different places in the UI, but each component has its own state/memory. updating one counter wont update the others
+  - with state, we view UI as a reflection of data changing over time.
+  - we describe that reflection of data using state, event handlers and JSX
+  - when building a component, imagine its view as a reflection of state changing over time
+

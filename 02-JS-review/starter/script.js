@@ -135,11 +135,12 @@ const data = [
   },
 ];
 
-/*
 function getBooks() {
   return data;
 }
 const books = getBooks();
+/*
+books;
 
 const titles = books.map((book) => book.title);
 titles;
@@ -188,7 +189,7 @@ booksAfterAdd;
 const booksAfterDelete = booksAfterAdd.filter((book) => book.id !== 3);
 booksAfterDelete;
 
-//update a book objecct in the array
+//update a book object in the array
 const booksAfterUpdate = booksAfterDelete.map((book) =>
   book.id === 1 ? { ...book, pages: 1210 } : book
 );

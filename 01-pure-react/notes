@@ -7,15 +7,12 @@ Why front end frameworks?
 React is:
 component-based - components are the building blocks of UI in React. all the components together make up complex UIs (like legos)
 declarative -
-
 - means we are telling React what a component should look like based on current data/state
 - describe how components look like and how they work using declaritive syntax called JSX
   - JSX combines HTML, CSS and JS and can also reference other React components
 - React is abstraction away from the DOM. The DOM is untouched in React
-  state-driven -
-- React reacts to state changes by rerendering the UI. (thats why its called React)
-  JS library - React is a JS library. Still has some missing parts (routing, data fetching, server side rendering) that React frameworks like NEXT.js or Remix can help with
-
+state-driven - React reacts to state changes by rerendering the UI. (thats why its called React)
+JS library - React is a JS library. Still has some missing parts (routing, data fetching, server side rendering) that React frameworks like NEXT.js or Remix can help with
 - to enter JS into React, you must go into JS mode using {}
   - anything can go in these as long as they return a value
   Ex: if/else statements won't work. ternaries will

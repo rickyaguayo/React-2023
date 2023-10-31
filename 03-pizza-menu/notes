@@ -39,7 +39,6 @@ JSX:
 - JSX produces JS expressions
 - a piece of JSX can only have one root element. if more are needed, use React.Fragment (<>)
 
-
 Imperative vs Declarative
 - Imperative code tells the program how to do things
   - Manual DOM element selections and DOM traversing 
