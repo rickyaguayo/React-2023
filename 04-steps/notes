@@ -1,7 +1,7 @@
 Handling events
 
 - similar to HTML events, but use camel case. add onEvent to JSX
-  Ex: <div onClick={callBack()}>
+  Ex: <div onClick={callBackFunc}>
 - pass in a function, not a function call. a function call will execute as soon as the component is rendered
 Ex: <div onClick={() => alert('Hello')}> ✅
 <div onClick={alert('Hello')}> ❌
