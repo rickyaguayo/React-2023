@@ -58,6 +58,7 @@ Styling:
   - styled components
 
 Props:
+- short for properties
 - way to pass data from parent components to child components. (cant be used vise versa)
 - when accessing props, props must be passed in as an argument to the function that created the component
 - anything can be passed as props: single values, arrays, objects, functions, and other components
