@@ -1,0 +1,43 @@
+Array.from() - 
+- lets you create an array from iterable objects and array like objects
+- takes 2 args:
+  1. iterable or array like objects
+  2. mapFn - function call on every element of the array
+    - takes 2 args:
+      1. value of the current index
+      2. current index
+Ex: Array.from({ length: 20}, (_, i) => i + 1)
+
+Handling Forms - 
+- use onSubmit={} in JSX for submit handling function
+- use .preventDefault() on submit handling function
+  - eliminates using enter to submit
+  - takes away page refresh
+
+Controlled Elements - 
+- this is when we take state control away from the DOM and move it into React
+- create state for the date you want to control
+Ex: const [number, setNumber] = useState(0)
+- use state inside a value attribute. onChange handler must be present
+Ex: <input value={number} onChange={e => setNumber(e.target.value)}
+- the value attribute is what gives React power over what would have been stored in the DOM
+- the onChange handler is what lets the value be changed. value cant be changed without onChange
+
+DONT FORGET:
+- when using .map() to create elements, the "key" attribute is required
+- semantic HTML is best
+
+State vs Props Review
+- State:
+  - internal data, owned by component
+  - component "memory"
+  - can be updated by the component itself
+  - updating state causes component to rerender
+  - used to make components interactive
+
+- Props:
+  - external data, owned by the parent component
+  - similar to function parameters
+  - read-only. cannot be modified by the component receiving them
+  - receiving new props causes component to rerender. Usually when the parent's state has been updated
+  - used by parent to configure child component ("settings")
