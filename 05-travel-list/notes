@@ -16,12 +16,13 @@ Handling Forms -
 
 Controlled Elements - 
 - this is when we take state control away from the DOM and move it into React
-- create state for the data you want to control
-Ex: const [number, setNumber] = useState(0)
-- use state inside a value attribute. onChange handler must be present
-Ex: <input value={number} onChange={e => setNumber(e.target.value)}
-- the value attribute is what gives React power over what would have been stored in the DOM
-- the onChange handler is what lets the value be changed. value cant be changed without onChange
+3 steps:
+  1. create state for the data you want to control
+    Ex: const [number, setNumber] = useState(0)
+  2. use state inside a value attribute. onChange handler must be present
+    Ex: <input value={number} onChange={e => setNumber(e.target.value)}>
+    - the value attribute is what gives React power over what would have been stored in the DOM
+  3. use the setter function inside the onChange handler. this is what lets the value be changed. value cant be changed without onChange
 
 DONT FORGET:
 - when using .map() to create elements, the "key" attribute is required
@@ -34,6 +35,7 @@ State vs Props Review
   - can be updated by the component itself
   - updating state causes component to rerender
   - used to make components interactive
+  - immutable
 
 - Props:
   - external data, owned by the parent component
@@ -44,7 +46,7 @@ State vs Props Review
 
 Thinking in React -
 - break UI into components and establish component tree
-- build static version in React, without state
+- build static version in React first, without state
 - state management:
   - think about state:
     - when to use state
@@ -52,7 +54,7 @@ Thinking in React -
     - where to place each piece of state
   - establish data flow
     - one way data flow
-    - child to parent communication
+    - child-to-parent communication
     - accessing global state
 
 State Management Fundamentals - 
@@ -93,3 +95,7 @@ State Management Fundamentals -
   - therefore we can lift state up to a common parent so that multiple children can have access to the state via props
   - with this technique, one piece of state can be shared with multiple components in different positions in the component tree
   - Child-to-parent communication (inverse data flow): child updating parent state by passing the setter function down to the child as well as the state
+
+- Derived state
+  - state that is computed from an existing piece of state or from props
+  - Ex: using .length or recude method instead of creating a new piece of state for the lenght/sum of state
