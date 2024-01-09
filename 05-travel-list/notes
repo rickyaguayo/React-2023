@@ -16,7 +16,7 @@ Handling Forms -
 
 Controlled Elements - 
 - this is when we take state control away from the DOM and move it into React
-- create state for the date you want to control
+- create state for the data you want to control
 Ex: const [number, setNumber] = useState(0)
 - use state inside a value attribute. onChange handler must be present
 Ex: <input value={number} onChange={e => setNumber(e.target.value)}
@@ -41,3 +41,55 @@ State vs Props Review
   - read-only. cannot be modified by the component receiving them
   - receiving new props causes component to rerender. Usually when the parent's state has been updated
   - used by parent to configure child component ("settings")
+
+Thinking in React -
+- break UI into components and establish component tree
+- build static version in React, without state
+- state management:
+  - think about state:
+    - when to use state
+    - types of state: local vs global
+    - where to place each piece of state
+  - establish data flow
+    - one way data flow
+    - child to parent communication
+    - accessing global state
+
+State Management Fundamentals - 
+- State management - 
+  - deciding when to create pieces of state
+  - what types of state are necessary
+  - where to place each piece of state
+  - how data flows through the app
+  - essentially gives each piece of state a home
+
+- Types of state -
+  - Local - 
+    - state needed only by one or few components
+    - state that is defined in a component and only that component and child components have access to it (by passing via props)
+    - should always start with local state
+  - Global - 
+    - state that many components may need
+    - shared state that is accessible to every component in the entire application
+
+- When to create state - 
+  - state begins when you need to store data
+  - if the data will change at some point:
+    - can it be computed with existing state/props?
+      - if so, derive state (calculate data based on already existing state/props)
+      - if not, use a variable (const/let)
+    - if the data cannot be computed with existing state/props, should it rerender?
+      - if no, use Ref (useRef)
+      - if yes, place a new piece of state inside the component (always start with local state)
+    
+- Where to create state -
+  - if the state is only needed in one component, leave it in the component
+  - if it is needed by a child component, pass it down using props
+  - if it is needed by one or few sibling components, lift state up to first common parent
+  - if it is needed by more than a few components, use global state
+
+- Lifting state - 
+  - data can only flow down to children. not sideways to siblings
+  - therefore we can lift state up to a common parent so that multiple children can have access to the state via props
+  - with this technique, one piece of state can be shared with multiple components in different positions in the component tree
+  - Child-to-parent communication (inverse data flow): child updating parent state by passing the setter function down to the child as well as the state
