@@ -47,3 +47,19 @@ State -
   - we describe that reflection of data using state, event handlers and JSX
   - when building a component, imagine its view as a reflection of state changing over time
 
+  'children' prop:
+  - is received automatically by every React component
+  - an empty "hole" that can be filled by any JSX the component receives as children
+  - value of the children prop is exactly what is in between the openeing and closing tag of its parent React component
+  - Essential tool to make reuseable and congifurable components (especially component content)
+  - pass 'children' as a prop. use inside opening/closing tags
+  Ex: function Button ({children}) {
+    return (
+      <button>{children}</button>
+    )
+  }
+  <Button>
+    <p>hello world</p>
+  </Button>
+  -Really useful for generic components that dont know their content before being used
+

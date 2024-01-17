@@ -20,9 +20,9 @@ Controlled Elements -
   1. create state for the data you want to control
     Ex: const [number, setNumber] = useState(0)
   2. use state inside a value attribute. onChange handler must be present
+  3. use the setter function inside the onChange handler. this is what lets the value be changed. value cant be changed without onChange
     Ex: <input value={number} onChange={e => setNumber(e.target.value)}>
     - the value attribute is what gives React power over what would have been stored in the DOM
-  3. use the setter function inside the onChange handler. this is what lets the value be changed. value cant be changed without onChange
 
 DONT FORGET:
 - when using .map() to create elements, the "key" attribute is required
