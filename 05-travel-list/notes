@@ -98,4 +98,4 @@ State Management Fundamentals -
 
 - Derived state
   - state that is computed from an existing piece of state or from props
-  - Ex: using .length or recude method instead of creating a new piece of state for the lenght/sum of state
+  - Ex: using .length or reduce method instead of creating a new piece of state for the lenght/sum of state
